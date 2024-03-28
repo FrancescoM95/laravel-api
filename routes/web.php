@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //# ROTTE GUEST
 Route::get('/', GuestHomeController::class)->name('guest.home');
 
