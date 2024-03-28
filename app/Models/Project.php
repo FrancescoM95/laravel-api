@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Attribute;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute as CastsAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -36,5 +38,11 @@ class Project extends Model
     public function technologies()
     {
         return $this->belongsToMany(Technology::class);
+    }
+
+    //Accessor
+    public function image(): CastsAttribute
+    {
+        return CastsAttribute::make(fn ($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
     }
 }
