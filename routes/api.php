@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //# ROTTE API
 Route::apiResource('projects', ProjectController::class);
+
+//* Rotta singolo progetto
+Route::get('projects/{id}', [ProjectController::class, 'show']);
