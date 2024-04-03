@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\TypeProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,7 @@ Route::apiResource('projects', ProjectController::class);
 
 //* Rotta singolo progetto
 Route::get('projects/{id}', [ProjectController::class, 'show']);
+
+
+//* Rotta 
+Route::get('types/{id}/projects', TypeProjectController::class);
